@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today's 3s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f5f7;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:#1d1d1f;-webkit-font-smoothing:antialiased}
+.wrap{max-width:390px;margin:0 auto;padding:28px 20px 40px}
+.header{text-align:center;margin-bottom:28px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:#FF7A1A;color:#fff;border-radius:12px;font-weight:700;font-size:20px;margin-bottom:14px}
+h1{font-size:28px;font-weight:700;letter-spacing:-0.03em;margin-bottom:4px}
+.sub{font-size:15px;color:#86868b;font-weight:400}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.stat{background:#fff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.stat b{display:block;font-size:28px;font-weight:700;letter-spacing:-0.02em;color:#1d1d1f}
+.stat span{font-size:12px;color:#86868b;font-weight:500}
+.section{font-size:13px;font-weight:600;color:#86868b;text-transform:uppercase;letter-spacing:.04em;margin:0 0 12px 4px}
+.card{background:#fff;border-radius:20px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.title{font-size:17px;font-weight:700;letter-spacing:-0.02em;line-height:1.3}
+.emp{font-size:13px;color:#86868b;margin-top:3px}
+.badge{font-size:11px;font-weight:700;padding:5px 10px;border-radius:980px;white-space:nowrap}
+.bA{background:#d1fadf;color:#087443}.bC{background:#ffe4e1;color:#c01c1c}.bV{background:#d0f0fd;color:#0077a8}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.meta div{font-size:14px;font-weight:500}
+.meta label{display:block;font-size:11px;color:#86868b;font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:.03em}
+.close{display:inline-block;background:#ff3b30;color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px}
+.note{font-size:13px;padding:10px 12px;border-radius:12px;margin-top:8px;line-height:1.4}
+.fit{background:#f0faf4;color:#1d1d1f}.warn{background:#fff8ee;color:#1d1d1f}
+.note b{font-weight:600}
+.btns{display:flex;gap:8px;margin-top:16px}
+.btn{flex:1;text-align:center;text-decoration:none;font-size:14px;font-weight:600;padding:11px 16px;border-radius:980px}
+.btn-p{background:#FF7A1A;color:#fff}.btn-s{background:#f5f5f7;color:#1d1d1f}
+.unv{background:#fff;border-radius:20px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);font-size:14px;color:#86868b;line-height:1.5}
+.foot{text-align:center;font-size:11px;color:#aeaeb2;margin-top:28px;line-height:1.5}
+
+.logo{background:linear-gradient(145deg,#FF7A1A,#C2560A);box-shadow:0 4px 12px rgba(255,122,26,0.28)}
+.bX{background:rgba(255,122,26,0.14);color:#C2560A}
+.bN{background:#f0f0f2;color:#6e6e73}
+.ex{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px dashed rgba(255,122,26,0.55);border-radius:14px;padding:10px 14px;margin:-12px 0 22px;font-size:12px;color:#6e6e73;line-height:1.4}
+.ex b{color:#C2560A;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:11px;white-space:nowrap}
+.exm{color:#C2560A;font-weight:600}
+.list{list-style:none}
+.list li{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid #f0f0f2;font-size:15px;font-weight:500}
+.list li:first-child{border-top:0;padding-top:2px}
+.list li:last-child{padding-bottom:0}
+.chk{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,122,26,0.55)}
+.chk.on{background:#FF7A1A;border-color:#FF7A1A;position:relative}
+.chk.on:after{content:'';position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.list .ph{color:#86868b}
+.list small{margin-left:auto;font-size:12px;color:#86868b;font-weight:500;white-space:nowrap}
+.lang{padding:12px 0;border-top:1px solid #f0f0f2}
+.lang:first-of-type{border-top:0;padding-top:0}
+.lang:last-of-type{padding-bottom:0}
+.lang p{font-size:15px;font-weight:600;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:6px 11px;border-radius:980px;background:#f5f5f7;color:#1d1d1f}
+.chip i{width:8px;height:8px;border-radius:50%;border:1.5px solid #FF7A1A}
+.chip.on{background:rgba(255,122,26,0.14);color:#C2560A}.chip.on i{background:#FF7A1A}
+.dl{display:inline-block;background:#FF7A1A;color:#fff;font-size:12px;font-weight:700;padding:3px 9px;border-radius:980px}
+.bar{height:6px;background:#f0f0f2;border-radius:6px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:#FF7A1A;border-radius:6px}
+
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.ok{background:#30d158}.wn{background:#ff9f0a}.er{background:#ff3b30}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="logo">3</div>
+    <h1>Today's 3s</h1>
+    <p class="sub">Daily focus list · Wed 14 Oct 2026</p>
+  </div>
+  <div class="ex"><b>Example</b><span>Placeholder layout. Items in [brackets] are sample content, not real data.</span></div>
+  <div class="stats"><div class="stat"><b>0/15</b><span>[example] tasks done</span></div><div class="stat"><b>0/7</b><span>language sessions</span></div><div class="stat"><b>0/3</b><span>exercise</span></div><div class="stat"><b>[0]</b><span>day streak</span></div></div>
+  <p class="section">NIRAS 3 · weekdays</p>
+  <div class="card"><ul class="list"><li><span class="chk"></span><span class="ph">[NIRAS task 1]</span></li><li><span class="chk"></span><span class="ph">[NIRAS task 2]</span></li><li><span class="chk"></span><span class="ph">[NIRAS task 3]</span></li></ul></div>
+  <p class="section">PhD 3</p>
+  <div class="card"><ul class="list"><li><span class="chk"></span><span class="ph">[PhD task 1]</span></li><li><span class="chk"></span><span class="ph">[PhD task 2]</span></li><li><span class="chk"></span><span class="ph">[PhD task 3]</span></li></ul></div>
+  <p class="section">Books 3</p>
+  <div class="card"><ul class="list"><li><span class="chk"></span><span class="ph">[Book 1: title / pages]</span></li><li><span class="chk"></span><span class="ph">[Book 2: title / pages]</span></li><li><span class="chk"></span><span class="ph">[Book 3: title / pages]</span></li></ul></div>
+  <p class="section">Travel 3</p>
+  <div class="card"><ul class="list"><li><span class="chk"></span><span class="ph">[Travel task 1]</span></li><li><span class="chk"></span><span class="ph">[Travel task 2]</span></li><li><span class="chk"></span><span class="ph">[Travel task 3]</span></li></ul></div>
+  <p class="section">Errands 3</p>
+  <div class="card"><ul class="list"><li><span class="chk"></span><span class="ph">[Errand 1]</span></li><li><span class="chk"></span><span class="ph">[Errand 2]</span></li><li><span class="chk"></span><span class="ph">[Errand 3]</span></li></ul></div>
+  <p class="section">Languages</p>
+  <div class="card"><div class="lang"><p>Spanish</p><div class="chips"><span class="chip"><i></i>Memrise</span><span class="chip"><i></i>Pimsleur</span></div></div><div class="lang"><p>Japanese</p><div class="chips"><span class="chip"><i></i>Memrise</span><span class="chip"><i></i>Pimsleur</span><span class="chip"><i></i>Skritter</span></div></div><div class="lang"><p>Indonesian</p><div class="chips"><span class="chip"><i></i>Memrise</span><span class="chip"><i></i>Pimsleur</span></div></div></div>
+  <p class="section">Exercise 3</p>
+  <div class="card"><ul class="list">
+    <li><span class="chk"></span><span>Morning walk</span><small>06:30</small></li>
+    <li><span class="chk"></span><span>Afternoon walk</span><small>PM</small></li>
+    <li><span class="chk"></span><span>Gym or home workout</span><small>Gym Tue/Thu/Sat</small></li>
+  </ul>
+  <div class="note warn"><b>Today (Wed):</b> home workout, no gym day</div></div>
+
+  <p class="foot">Example layout · placeholder tasks only, no real NIRAS content</p>
+</div>
+</body>
+</html>
